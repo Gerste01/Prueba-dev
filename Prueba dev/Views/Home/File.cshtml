@@ -1,0 +1,52 @@
+﻿@model Prueba_dev.Models.FileUploadViewModel
+@{
+    ViewData["Title"] = "File";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    h1 {
+        padding: 50px;
+        font-weight: 500;
+    }
+</style>
+<h1></h1>
+<div class="form-group row">
+    <form asp-action="File" class="text-left form-validate" enctype="multipart/form-data">
+        <div class="form-group col-sm-12">
+               <input asp-for="OcBusqueda" type="text" runat="server" >
+        </div>
+        <br />
+        <div class="form-group col-sm-6">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <h1>
+        Resultados de busqueda
+    </h1>
+    <table class="table table-active table-bordered" width="100">
+        <thead>
+            <tr>
+                <th>Oc</th>
+                <th>F12</th>
+                <th>Sku</th>
+                <th>Cc</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.StaffInfoViewModel.StaffList)
+            {
+                <tr>
+                    <td>@item.Oc</td>
+                    <td>@item.F12</td>
+                    <td>@item.Sku</td>
+                    <td>@item.Cc</td>
+                    <td>@item.Estado</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
